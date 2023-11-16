@@ -71,18 +71,19 @@ body {
 .product-text {
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 1vh;
 }
 
 .stock-text {
     display: flex;
+    max-width: 15vw;
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin-bottom: 1vh;
 }
 
 .rating {
     font-size: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 1vh;
 }
 
 .star {
@@ -91,17 +92,23 @@ body {
 
 .product-description {
     line-height: 1.5;
-    margin-bottom: 10px;
+    max-width: 40vw;
+    margin-bottom: 1vh;
 }
 
 .special-features {
-    margin-bottom: 10px;
+    margin-bottom: 1vh;
+}
+.special-features-text{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 1vh;
 }
 
 .selections {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: row;
+    gap: 5vw;
 }
 
 .selection {
@@ -111,14 +118,14 @@ body {
 
 label {
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 1vh;
 }
 
 select,
 input {
-    width: 100%;
+    width: 10vw;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 2vh;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
@@ -126,21 +133,23 @@ input {
 .price-submit {
     display: flex;
     justify-content: space-between;
+    max-width: 40vw;
     align-items: center;
 }
 
 .add-button {
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #00c437;
     color: #fff;
     border: none;
     border-radius: 4px;
+    width: 5vw;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .add-button:hover {
-    background-color: #45a049;
+    background-color: #00ad31;
 }
 
 .price-text {

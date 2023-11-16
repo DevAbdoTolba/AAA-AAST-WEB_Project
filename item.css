@@ -23,6 +23,9 @@ body {
 }
 
 .product-image {
+    display: flex;
+    flex-direction: column;
+    gap: 2ch;
     background-color: #fff;
     overflow: hidden;
     width: 50%;
@@ -44,7 +47,7 @@ body {
 .thumbnail-images {
     display: flex;
     flex-direction: row;
-    gap: 50px;
+    gap: 2ch;
     height: 40vh;
     cursor: pointer;
 }
@@ -62,6 +65,9 @@ body {
 }
 
 .product-features {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     background-color: #fff;
     border-radius: 8px;
     padding: 20px;

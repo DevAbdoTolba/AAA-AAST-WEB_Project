@@ -22,6 +22,7 @@ export default function Main() {
         bgcolor={"#f9f9f9"}
         sx={{
           borderRadius: "3ch 3ch 0 0",
+          height: "100vh"
         }}
       >
         <Box mt={5}>

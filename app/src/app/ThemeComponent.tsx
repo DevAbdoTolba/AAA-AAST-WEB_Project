@@ -143,6 +143,37 @@ const themeConfig = {
   },
 
   components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          "&.filled": {
+            borderRadius: "0",
+            backgroundColor: "#041830",
+            border: "1px solid #041830",
+
+            color: "#fff",
+            "&:hover": {
+              backgroundColor: "#f9f9f9",
+              border: "1px solid #041830",
+              color: "#041830",
+            },
+          },
+          "&.outlined": {
+            borderRadius: "0",
+            backgroundColor: "#fff",
+            border: "1px solid #041830",
+            color: "#041830",
+            "&:hover": {
+              backgroundColor: "#041830",
+              border: "1px solid #041830",
+              color: "#fff",
+            },
+          },
+        },
+        textTransform: "none",
+      },
+    },
+
     MuiTextField: {
       styleOverrides: {
         root: {

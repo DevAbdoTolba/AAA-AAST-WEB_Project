@@ -5,94 +5,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="item.css">
-    <title>Document</title>
+    <title>Modern Furniture Store</title>
 </head>
 
 <body>
-    <div class="main">
-
-        <div class="productImage">
-            <div class="productImage__top">
-
-                <img src="ui-image-placeholder-wireframes-apps-260nw-1037719204.webp" alt="Img" id="p1">
+    <div class="container__1">
+        <div class="product-image">
+            <div class="main-image">
+                <img src="ui-image-placeholder-wireframes-apps-260nw-1037719204.webp" alt="White Wooden Chair"
+                    id="main-image">
             </div>
-            <div class="productImage__bottom">
-
-                <img src="ui-image-placeholder-wireframes-apps-260nw-1037719204.webp" alt="Img" id="p2">
-                <img src="ui-image-placeholder-wireframes-apps-260nw-1037719204.webp" alt="Img" id="p2">
-                <img src="ui-image-placeholder-wireframes-apps-260nw-1037719204.webp" alt="Img" id="p2">
-
+            <div class="thumbnail-images">
+                <div class="thum1">
+                    <img src="ui-image-placeholder-wireframes-apps-260nw-1037719204.webp" alt="Thumbnail Image 1"
+                        class="thumbnail">
+                </div>
+                <div class="thum1">
+                    <img src="ui-image-placeholder-wireframes-apps-260nw-1037719204.webp" alt="Thumbnail Image 2"
+                        class="thumbnail">
+                </div>
+                <div class="thum1">
+                    <img src="ui-image-placeholder-wireframes-apps-260nw-1037719204.webp" alt="Thumbnail Image 3"
+                        class="thumbnail">
+                </div>
             </div>
         </div>
 
-        <div class="productFeatures">
-            <h1 class="product_text">White Wooden Chair</h1>
-            <div class="stock_text">
-                <h2>
-                    In Stock
-                </h2>
-                <h2>
-                    SKU: 639511
-                </h2>
+        <div class="product-features">
+            <h1 class="product-text">White Wooden Chair</h1>
+            <div class="stock-text">
+                <h2>In Stock</h2>
+                <h2>SKU: 639511</h2>
             </div>
-            <div class="stars">
-                <h1>1 2 3 4 5 </h1>
+            <div class="rating">
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9734;</span>
             </div>
-            <div class="product_description">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, distinctio fugit. Animi dolor
-                    temporibus cum, quidem voluptas quos veritatis beatae mollitia, rerum eum sit nobis corporis
-                    impedit, quibusdam illo ipsa?</p>
-            </div>
-            <div class="special_features">
+            <p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, distinctio
+                fugit.
+                Animi dolor temporibus cum, quidem voluptas quos veritatis beatae mollitia, rerum eum sit nobis corporis
+                impedit, quibusdam illo ipsa?</p>
+            <div class="special-features">
                 <dl>
                     <dt><strong>Special Features</strong></dt>
                     <dd>- Free Shipping</dd>
-                    <dd>- Try Before buying</dd>
-                    <dd>- Up to 30% offers</dd>
+                    <dd>- Try Before Buying</dd>
+                    <dd>- Up to 30% Off</dd>
                 </dl>
             </div>
-            
-            <div>
-            
+
             <div class="selections">
-                <div class="selection_1">
-                <label for="color">Color</label> <br>
-                <select id="color" name="color">
-                    <option value="Red">Red</option>
-                    <option value="Blue">Blue</option>
-                    <option value="Black">Black</option>
-                    <option value="yellow">yellow</option>
-                </select>
-            </div>
-            <div class="selection_1">
-                <label for="size">Select Size:</label> <br>
-                <select id="size" name="size">
-                    <option value="small">Small</option>
-                    <option value="medium">Medium</option>
-                    <option value="large">Large</option>
-                    <option value="extra-large">Extra Large</option>
-                </select>
-            </div>
-            <div class="selection_1">
-                <label for="size">Select Size:</label> <br>
-                <select id="size" name="size">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select>
-            </div>
+                <div class="selection">
+                    <label for="color">Color</label>
+                    <select id="color" name="color">
+                        <option value="Red">Red</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Black">Black</option>
+                        <option value="Yellow">Yellow</option>
+                    </select>
+                </div>
+                <div class="selection">
+                    <label for="size">Select Size:</label>
+                    <select id="size" name="size">
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Large">Large</option>
+                        <option value="Extra-Large">Extra Large</option>
+                    </select>
+                </div>
+                <div class="selection">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" min="1" value="1">
+                </div>
             </div>
 
-            <div class="price_Submit">
-                <p>$259</p>
-                <button type="submit">Add To Cart</button>
+            <div class="price-submit">
+                <div class="price">
+                    <p class="price-text">$259</p>
+                </div>
+                <button type="submit" class="add-button">Add To Cart</button>
             </div>
-
-
-            </div>
-
-
         </div>
     </div>
 </body>

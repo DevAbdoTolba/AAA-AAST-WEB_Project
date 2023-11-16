@@ -1,0 +1,76 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.main{
+    background-color: bisque;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    
+}
+.productImage{
+    background-color: blue;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.productImage__bottom{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.productFeatures{
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color: brown;
+    width: 50VW;
+}
+.product_text{
+
+    
+
+}
+.stock_text{
+display: flex;
+flex-direction: row;
+gap: 50px;
+
+
+}
+.stars{
+width: 10vw;
+height: 3vh;
+border: 2px;
+background-color: chartreuse;
+}
+.product_description{
+    max-width: 70vh;
+}
+.selections{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+
+}
+.price_Submit{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+#p1{
+    position: relative;
+    display: block;
+    height: 750px;
+    width: 100%;   
+}
+#p2{
+    position: relative;
+    height: 250px;
+    width: 33%;   
+}

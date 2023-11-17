@@ -102,7 +102,7 @@ export default function Main() {
           mb: 5,
         }}
       >
-        More Categories
+        More Products
       </Button>
     </>
   );

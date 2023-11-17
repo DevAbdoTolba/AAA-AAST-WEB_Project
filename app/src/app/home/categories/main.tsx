@@ -1,4 +1,4 @@
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, Button } from "@mui/material";
 import { motion } from "framer-motion";
 import Image from "next/image";
 const MotionBox = motion(Box);
@@ -115,7 +115,18 @@ export default function Main() {
             Tables
           </Typography>
         </MotionBox>
+
       </MotionBox>
+      <Button
+          className={"outlined"}
+          sx={{
+            px: 8,
+            py: 1.5,
+            mb: 5,
+          }}
+        >
+          More Categories
+        </Button>
     </>
   );
 }

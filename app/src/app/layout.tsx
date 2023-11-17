@@ -7,6 +7,7 @@ import { Box } from "@mui/material";
 import ThemeComponent from "./ThemeComponent";
 import Head from "./head";
 import Header from "./util/components/header";
+import Footer from "./util/components/footer";
 export default function RootLayout({
   children,
 }: {
@@ -19,6 +20,14 @@ export default function RootLayout({
         <ThemeComponent>
           <Header />
           <Box mx={"5%"}>{children}</Box>
+          <Box mx={"5%"} 
+            display={"flex"}
+            flexDirection={"column"}
+            justifyContent={"center"}
+            alignItems={"center"}
+          >
+            <Footer />
+          </Box>
         </ThemeComponent>
       </body>
     </html>

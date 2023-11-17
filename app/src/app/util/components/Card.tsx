@@ -10,7 +10,7 @@ import Image from "next/image";
 interface Props {
   favorite: boolean;
   image: string;
-  state: "New" | "Discount" | "Sold Out";
+  state: string;
   description: string;
   price: number;
   inCart: boolean;
@@ -55,15 +55,13 @@ export default function Card({
       >
         {isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
       </IconButton>
-      <Box flexBasis={"60%"}
+      <Box
+        flexBasis={"60%"}
         height={"100%"}
-        width={
-            "100%"
-        }
+        width={"100%"}
         display={"flex"}
         justifyContent={"center"}
         alignItems={"center"}
-
       >
         <Image
           src={"/images/" + image}
@@ -96,9 +94,9 @@ export default function Card({
             sx={{
               color:
                 state === "New"
-                  ? "Main.green"
+                  ? "Main.orange"
                   : state === "Discount"
-                  ? "Main.yellow"
+                  ? "Main.green"
                   : "Main.red",
             }}
             fontWeight={"bold"}

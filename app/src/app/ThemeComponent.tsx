@@ -147,6 +147,8 @@ const themeConfig = {
       styleOverrides: {
         root: {
           "&.filled": {
+            textTransform: "capitalize",
+
             borderRadius: "0",
             backgroundColor: "#041830",
             border: "1px solid #041830",
@@ -159,6 +161,8 @@ const themeConfig = {
             },
           },
           "&.outlined": {
+            textTransform: "capitalize",
+
             borderRadius: "0",
             backgroundColor: "#fff",
             border: "1px solid #041830",

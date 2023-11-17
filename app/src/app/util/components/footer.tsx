@@ -22,6 +22,9 @@ export default function footer() {
       bgcolor={"Main.light"}
       pt={"5ch"}
       px={"4%"}
+      display={"flex"}
+      flexDirection={"column"}
+      justifyContent={"space-around"}
       sx={{
         borderRadius: "1rem 1rem 0 0",
         overflow: "hidden",
@@ -320,7 +323,20 @@ export default function footer() {
         justifyContent="center"
         alignItems="center"
         direction={"column"}
-      ></Grid>
+      >
+        <Typography
+          variant="h5"
+          textAlign={"center"}
+          width={"50ch"}
+        >
+          Copyright Meine Kampf &copy; &nbsp;
+          {new Date().getFullYear()}
+        </Typography>
+        <Typography variant="subtitle2" fontWeight={"100"} textAlign={"center"}>
+          Devolped by Abdulrahman Tolba, Amr Elbana, and Ahmed AboElwafa |
+          Designed by Mai Haggag
+        </Typography>
+      </Grid>
     </Box>
   );
 }

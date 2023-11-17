@@ -1,0 +1,153 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container__1 {
+  display: flex;
+  flex-direction: row;
+  width: 90vw;
+  height: 100vh;
+}
+
+.product-image {
+  display: flex;
+  flex-direction: column;
+  gap: 2ch;
+  background-color: #fff;
+  overflow: hidden;
+  width: 50%;
+}
+
+.main-image {
+  background-color: #f9f9f9;
+}
+#main-image {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 100%;
+  height: 80vh;
+  object-fit: fill;
+  cursor: pointer;
+}
+
+.thumbnail-images {
+  display: flex;
+  flex-direction: row;
+  gap: 2ch;
+  height: 40vh;
+  cursor: pointer;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 20vh;
+  object-fit: contain;
+}
+.thum1 {
+  width: 100%;
+  height: 40vh;
+  background-color: #f9f9f9;
+  object-fit: cover;
+}
+
+.product-features {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  width: 50%;
+}
+
+.product-text {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 1vh;
+}
+
+.stock-text {
+  display: flex;
+  max-width: 15vw;
+  justify-content: space-between;
+  margin-bottom: 1vh;
+}
+
+.rating {
+  font-size: 20px;
+  margin-bottom: 1vh;
+}
+
+.star {
+  color: #ffd700;
+}
+
+.product-description {
+  line-height: 1.5;
+  max-width: 40vw;
+  margin-bottom: 1vh;
+}
+
+.special-features {
+  margin-bottom: 1vh;
+}
+.special-features-text {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 1vh;
+}
+
+.selections {
+  display: flex;
+  flex-direction: row;
+  gap: 5vw;
+}
+
+.selection {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 1vh;
+}
+
+select,
+input {
+  width: 10vw;
+  padding: 10px;
+  margin-bottom: 2vh;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.price-submit {
+  display: flex;
+  justify-content: space-between;
+  max-width: 40vw;
+  align-items: center;
+}
+
+.add-button {
+  padding: 10px;
+  background-color: #00c437;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  width: 5vw;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-button:hover {
+  background-color: #00ad31;
+}
+
+.price-text {
+  font-size: 24px;
+  font-weight: bold;
+}

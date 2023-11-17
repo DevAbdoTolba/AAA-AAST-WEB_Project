@@ -1,0 +1,31 @@
+* {
+    padding: 0;
+    margin: 0;
+  }
+  .Related-text {
+    font-weight: bold;
+    margin-bottom: 2vh;
+  }
+  .related-product-image {
+    overflow: hidden;
+  }
+  
+  .related-thumbnail-images {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90vw;
+    height: 40vh;
+    cursor: pointer;
+  }
+  .related-thumbnail {
+    width: 100%;
+    height: 20vh;
+    object-fit: contain;
+  }
+  .related-thum1 {
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
+  }
+  

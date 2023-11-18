@@ -60,7 +60,6 @@
   background-color: #fff;
   border-radius: 8px;
   padding: 20px;
-  width: 50%;
 }
 
 .product-text {
@@ -71,7 +70,6 @@
 
 .stock-text {
   display: flex;
-  max-width: 15vw;
   justify-content: space-between;
   margin-bottom: 1vh;
 }
@@ -87,7 +85,6 @@
 
 .product-description {
   line-height: 1.5;
-  max-width: 40vw;
   margin-bottom: 1vh;
 }
 
@@ -128,7 +125,6 @@ input {
 .price-submit {
   display: flex;
   justify-content: space-between;
-  max-width: 40vw;
   align-items: center;
 }
 
@@ -138,7 +134,7 @@ input {
   color: #fff;
   border: none;
   border-radius: 4px;
-  width: 5vw;
+  width: fit-content;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -150,4 +146,22 @@ input {
 .price-text {
   font-size: 24px;
   font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+  .container__1 {
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    width: 100vw;
+    height: 200vh;
+  }
+
+  .product-image {
+    overflow: visible;
+    width: 100%;
+  }
+
+  .product-features {
+    width: 100%;
+  }
 }

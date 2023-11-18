@@ -62,13 +62,15 @@ export default function Card({
         display={"flex"}
         justifyContent={"center"}
         alignItems={"center"}
+        sx={{
+          "& img": {
+            width: "50%",
+            height: "50%",
+            objectFit: "contain",
+          },
+        }}
       >
-        <Image
-          src={"/images/" + image}
-          alt={description}
-          width={192.09}
-          height={200}
-        />
+        <img src={"/images/" + image} alt={description} />
       </Box>
 
       <Box
@@ -111,6 +113,23 @@ export default function Card({
             {price} EGP
           </Typography>
         </Box>
+        <Typography
+          component={"a"}
+          href="/item"
+          variant="subtitle1"
+          color={"#071b32"}
+          sx={{
+            width: "80%",
+            textAlign: "left",
+            "&:hover": {
+              color: "Main.primary",
+              textDecoration: "underline",
+            },
+          }}
+        >
+          More info
+        </Typography>
+
         <Button
           className={isInCart ? "outlined" : "filled"}
           sx={{

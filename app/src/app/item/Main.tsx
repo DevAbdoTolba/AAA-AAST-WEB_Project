@@ -1,4 +1,7 @@
 import React from "react";
+
+import { Button } from "@mui/material";
+
 import "./style.css";
 
 export default function Main() {
@@ -66,6 +69,9 @@ export default function Main() {
               <dd>- Up to 30% Off</dd>
             </dl>
           </div>
+          <div className="price">
+            <p className="price-text">$259</p>
+          </div>
           <div className="selections">
             <div className="selection">
               <label htmlFor="color">Color</label>
@@ -97,12 +103,7 @@ export default function Main() {
             </div>
           </div>
           <div className="price-submit">
-            <div className="price">
-              <p className="price-text">$259</p>
-            </div>
-            <button type="submit" className="add-button">
-              Add To Cart
-            </button>
+            <Button className="outlined">Add to Cart</Button>
           </div>
         </div>
       </div>

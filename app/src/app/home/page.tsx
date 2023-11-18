@@ -19,6 +19,9 @@ export default function Home() {
         justifyContent={"center"}
         alignItems={"center"}
         gap={"5ch"}
+        sx={{
+          
+        }}
       >
         <Main />
         <MotionTypography

@@ -41,15 +41,17 @@ export default function Main() {
 
             // on scroll
           }}
+          sx={{
+            "& img": {
+              width: "50%",
+              height: "50%",
+              objectFit: "contain",
+            },
+          }}
           viewport={{ once: true }}
           bgcolor={"#f9f9f9"}
         >
-          <Image
-            src={"/images/chair.png"}
-            alt={"chair"}
-            width={278}
-            height={267}
-          />
+          <img src={"/images/chair.png"} alt={"chair"} />
           <Typography variant="h6" color={"#071b32"}>
             Chairs
           </Typography>
@@ -71,10 +73,17 @@ export default function Main() {
 
             // on scroll
           }}
+          sx={{
+            "& img": {
+              width: "50%",
+              height: "50%",
+              objectFit: "contain",
+            },
+          }}
           viewport={{ once: true }}
           bgcolor={"#f9f9f9"}
         >
-          <Image src={"/images/lambs.png"} alt={"2"} width={481} height={677} />
+          <img src={"/images/lambs.png"} alt={"2"} />
           <Typography
             variant="h6"
             color={"#071b32"}
@@ -104,29 +113,30 @@ export default function Main() {
           }}
           bgcolor={"#f9f9f9"}
           viewport={{ once: true }}
+          sx={{
+            "& img": {
+              width: "50%",
+              height: "50%",
+              objectFit: "contain",
+            },
+          }}
         >
-          <Image
-            src={"/images/table.png"}
-            alt={"table"}
-            width={276}
-            height={300}
-          />
+          <img src={"/images/table.png"} alt={"table"} />
           <Typography variant="h6" color={"#071b32"}>
             Tables
           </Typography>
         </MotionBox>
-
       </MotionBox>
       <Button
-          className={"outlined"}
-          sx={{
-            px: 8,
-            py: 1.5,
-            mb: 5,
-          }}
-        >
-          More Categories
-        </Button>
+        className={"outlined"}
+        sx={{
+          px: 8,
+          py: 1.5,
+          mb: 5,
+        }}
+      >
+        More Categories
+      </Button>
     </>
   );
 }

@@ -19,8 +19,23 @@ export default function RootLayout({
       <body>
         <ThemeComponent>
           <Header />
-          <Box mx={"5%"}>{children}</Box>
-          <Box mx={"5%"} 
+          <Box
+            sx={{
+              mx: {
+                xs: 0,
+                sm: "5%",
+              },
+            }}
+          >
+            {children}
+          </Box>
+          <Box
+            sx={{
+              mx: {
+                xs: 0,
+                sm: "5%",
+              },
+            }}
             display={"flex"}
             flexDirection={"column"}
             justifyContent={"center"}

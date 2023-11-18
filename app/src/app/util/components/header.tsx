@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -10,7 +12,7 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 export default function Header() {
   return (
-    <Box    sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="static"
         sx={{
@@ -34,7 +36,8 @@ export default function Header() {
           <Grid item xs={4} textAlign={"start"}>
             <Typography
               variant="h6"
-              component="div"
+              component="a"
+              href="/home"
               sx={{ flexGrow: 1 }}
               fontWeight={700}
               color={"Main.primary"}
@@ -42,14 +45,23 @@ export default function Header() {
               Logo
             </Typography>
           </Grid>
-          <Grid item xs={4}>
+          <Grid
+            item
+            xs={4}
+            sx={{
+              display: {
+                xs: "none",
+                sm: "block",
+              },
+            }}
+          >
             <Grid
               container
               justifyContent="space-between"
               alignItems="center"
               direction={"row"}
             >
-              <Link href="/">
+              <Link href="/home">
                 <Typography
                   color={"Main.primary"}
                   fontWeight={400}
@@ -111,7 +123,7 @@ export default function Header() {
                   About
                 </Typography>
               </Link>
-              <Link href="/contact">
+              <Link href="#contact">
                 <Typography
                   color={"Main.primary"}
                   fontWeight={400}
@@ -139,7 +151,11 @@ export default function Header() {
               <IconButton>
                 <SearchIcon />
               </IconButton>
-              <IconButton>
+              <IconButton
+                onClick={() => {
+                  window.location.href = "/SignIn";
+                }}
+              >
                 <PersonOutlineOutlinedIcon />
               </IconButton>
               <IconButton>

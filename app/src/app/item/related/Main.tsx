@@ -57,10 +57,16 @@ export default function Main() {
         width={"100%"}
         display={"grid"}
         // grid 4 in the first row then 4 in the second row
-        gridTemplateColumns={"1fr 1fr 1fr 1fr"}
+        
         gap={2}
         textAlign={"center"}
         bgcolor={"#fff"}
+        sx={{
+          gridTemplateColumns: {
+            xs: "1fr",
+            sm: "repeat(4, 1fr)",
+          },
+        }}
       >
         {MockData.map((item, i) => (
           <Card

@@ -17,7 +17,6 @@ import Link from "next/link";
 export default function footer() {
   return (
     <Box
-      height={"80vh"}
       width={"95vw"}
       bgcolor={"Main.light"}
       pt={"5ch"}
@@ -28,13 +27,26 @@ export default function footer() {
       sx={{
         borderRadius: "1rem 1rem 0 0",
         overflow: "hidden",
+        height: {
+          xs: "auto",
+          sm: "85vh",
+        },
       }}
     >
       <Grid
         container
         justifyContent={"space-between"}
         alignItems="stretch"
-        direction={"row"}
+        sx={{
+          flexDirection: {
+            xs: "column",
+            sm: "row",
+          },
+          gap: {
+            xs: "2rem",
+            sm: "0",
+          },
+        }}
       >
         <Grid
           item
@@ -282,8 +294,9 @@ export default function footer() {
           >
             Bedroom
           </Typography>
-        </Grid>{" "}
+        </Grid>
         <Grid
+          id="contact"
           item
           xs={3}
           display={"flex"}
@@ -320,14 +333,23 @@ export default function footer() {
       <Divider />
       <Grid
         container
-        justifyContent="center"
-        alignItems="center"
-        direction={"column"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        sx={{
+          textAlign: "center",
+
+          flexWrap: "wrap",
+        }}
       >
         <Typography
           variant="h5"
           textAlign={"center"}
-          width={"50ch"}
+          sx={{
+            width: {
+              xs: "auto",
+              sm: "50ch",
+            },
+          }}
         >
           Copyright Meine Kampf &copy; &nbsp;
           {new Date().getFullYear()}

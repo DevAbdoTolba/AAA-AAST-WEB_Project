@@ -46,11 +46,16 @@ export default function Main() {
             transition={{
               type: "spring",
             }}
+            sx={{
+              "& img": {
+                width: "50%",
+                height: "50%",
+                objectFit: "cover",
+              }
+            }}
           >
-            <Image
+            <img
               src={"/images/coach.png"}
-              width={775}
-              height={300}
               alt={"Coach"}
             />
           </MotionBox>

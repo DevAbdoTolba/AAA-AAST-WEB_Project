@@ -106,7 +106,7 @@ export default function Header() {
                   Offers
                 </Typography>
               </Link>
-              <Link href="/about">
+              <Link href="#contact">
                 <Typography
                   color={"Main.primary"}
                   fontWeight={400}

@@ -20,7 +20,6 @@ export default function Home() {
         alignItems={"center"}
         gap={"5ch"}
         sx={{
-          
         }}
       >
         <Main />

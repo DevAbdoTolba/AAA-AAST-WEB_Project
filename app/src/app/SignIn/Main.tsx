@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import "./style.css";
 export default function main() {
@@ -5,7 +7,7 @@ export default function main() {
     <>
       <main>
         <div className="box1">
-          <form>
+          <form action={"home"}>
             <div>
               <h2 style={{ color: "#7c70a4" }}>Sign Up</h2>
               <p>Get in touch with cool customers!</p>

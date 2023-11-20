@@ -42,7 +42,7 @@ export default function Header() {
               fontWeight={700}
               color={"Main.primary"}
             >
-              Logo
+              Meine Kampf
             </Typography>
           </Grid>
           <Grid

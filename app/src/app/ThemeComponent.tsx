@@ -55,6 +55,7 @@ const themeConfig = {
           primary: "#26405e",
           white: "#ffffff",
           light: "#f9f9f9",
+          grey: "#c8c8c8",
           black: "#041830",
           red: "#e52d04",
           orange: "#e79901",

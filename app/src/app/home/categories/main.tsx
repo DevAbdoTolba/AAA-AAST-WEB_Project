@@ -134,6 +134,9 @@ export default function Main() {
           py: 1.5,
           mb: 5,
         }}
+        onClick={()=>{
+          window.location.href = "products"
+        }}
       >
         More Categories
       </Button>

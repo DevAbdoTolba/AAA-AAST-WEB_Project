@@ -1,3 +1,5 @@
+'use client'
+
 import { Typography, Box, Button } from "@mui/material";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -35,6 +37,9 @@ export default function Main() {
               px: 8,
               py: 1.5,
               fontWeight: 700,
+            }}
+            onClick={()=>{
+              window.location.href = "products"
             }}
           >
             Check out

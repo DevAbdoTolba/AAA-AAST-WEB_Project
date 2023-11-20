@@ -69,9 +69,7 @@ export default function Main() {
               <dd>- Up to 30% Off</dd>
             </dl>
           </div>
-          <div className="price">
-            <p className="price-text">$259</p>
-          </div>
+
           <div className="selections">
             <div className="selection">
               <label htmlFor="color">Color</label>
@@ -103,7 +101,17 @@ export default function Main() {
             </div>
           </div>
           <div className="price-submit">
-            <Button className="outlined">Add to Cart</Button>
+            <div className="price">
+              <h2 className="price-text">$259</h2>
+            </div>
+            <Button
+              className="outlined"
+              sx={{
+                width: "50ch",
+              }}
+            >
+              Add to Cart
+            </Button>
           </div>
         </div>
       </div>

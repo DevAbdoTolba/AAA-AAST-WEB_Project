@@ -60,6 +60,13 @@ export default function main() {
                   />
                 </div>
               </div>
+              <div className="twoInRow">
+                <div className="in">
+                  <label htmlFor="Date">Date of birth</label>
+                  <input id="Date" type="date" name="Date" />
+                </div>
+                <div className="in"></div>
+              </div>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <div className="gender">
                   <input
@@ -79,6 +86,7 @@ export default function main() {
                   />
                   <label htmlFor="female">Female</label>
                 </div>
+
                 <input
                   type="submit"
                   style={{

@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+overflow: hidden;
+}
+
+.star-div {
+    text-align: center;
+    height: 25vh;
+    animation: star 1s ease-in;
+}
+.star {
+    color: gold;
+    font-size: 10rem;
+    text-align: center;
+
+}
+
+.submission-div {
+    width: 100vw;
+    text-align: center;
+    font-size: 5rem;
+    text-transform: uppercase;
+    height: 25vh;
+    backface-visibility: hidden;
+    animation: submission 1s ease-out;
+}
+.submission-text{
+    text-align: center;
+    color: #00cc45;
+    font-size: 4rem;
+    transform: translateY(5vh);
+}
+
+.thumbnail-div {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+    height: 25vh;
+
+}
+
+.text-term-div {
+    font-size: 2rem;
+    text-align: center;
+    text-transform: capitalize;
+    height: 25vh;
+    animation: text-term 1s ease-out;
+    animation-fill-mode: backwards;
+    backface-visibility: hidden;
+}
+.txt-term{
+transform: translateY(11vh);
+}
+
+
+@keyframes star {
+    0% {
+        opacity: 0;
+        transform: scale(1);
+        transform: translateX(100px);
+
+    }
+
+    80% {
+        transform: scale(1.01);
+
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        transform: translate(0);
+
+    }
+    
+}
+@keyframes submission {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+
+    }
+    
+}
+@keyframes text-term {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+
+    }
+    
+}
+
+@media  (max-width: 800px) {
+    .star {
+        font-size: 5rem;
+    }
+    .submission-text{
+        font-size: 3rem;
+    }
+    .thumbnail-div {
+        gap: 1vw;
+    }
+    .thumbnail-div img {
+        width: 40vw;
+    }
+    .text-term-div {
+        font-size: 1.5rem;
+    }
+    .txt-term{
+        transform: translateY(8vh);
+    }
+    .star-div {
+        height: 15vh;
+    }
+
+    
+}

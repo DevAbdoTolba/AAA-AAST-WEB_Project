@@ -6,7 +6,7 @@
 .main {
     display: flex;
     flex-direction: column;
-    backface-visibility: hidden;
+overflow: hidden;
 }
 
 .star-div {

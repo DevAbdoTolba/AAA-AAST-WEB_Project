@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+html{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 .main {
     display: flex;
     flex-direction: column;

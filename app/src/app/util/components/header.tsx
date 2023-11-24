@@ -12,7 +12,7 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 export default function Header() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1 }} id="header">
       <AppBar
         position="static"
         sx={{
@@ -37,7 +37,7 @@ export default function Header() {
             <Typography
               variant="h6"
               component="a"
-              href="/home"
+              href="/"
               sx={{ flexGrow: 1 }}
               fontWeight={700}
               color={"Main.primary"}
@@ -89,7 +89,7 @@ export default function Header() {
                   Products
                 </Typography>
               </Link>
-              <Link href="/offers">
+              {/* <Link href="/offers">
                 <Typography
                   color={"Main.primary"}
                   fontWeight={400}
@@ -105,7 +105,7 @@ export default function Header() {
                 >
                   Offers
                 </Typography>
-              </Link>
+              </Link> */}
               <Link href="#contact">
                 <Typography
                   color={"Main.primary"}
@@ -158,7 +158,11 @@ export default function Header() {
               >
                 <PersonOutlineOutlinedIcon />
               </IconButton>
-              <IconButton>
+              <IconButton
+                onClick={() => {
+                  window.location.href = "/cart";
+                }}
+              >
                 <ShoppingBagOutlinedIcon />
               </IconButton>
             </ButtonGroup>

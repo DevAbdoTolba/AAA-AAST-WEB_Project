@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color:white;
+}
+
+.Box {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.product{
+    display: flex;
+    flex-direction: row;
+    padding: 4%;
+    width: 100%;
+}
+
+.image {
+    display: flex;
+    border-radius: 10px;
+    flex-direction: row;
+    gap: 20px;
+    width: 40%;
+    height: 40%;
+
+}
+
+.selection {
+    display: flex;
+    flex-direction: column;
+}
+.text {
+    display: flex;
+    flex-direction: column;
+    padding: 2px;
+    
+    font-weight: bold;
+}
+
+select,
+input {
+    width: 10vw;
+    padding: 10px;
+    margin-bottom: 2vh;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.add-button {
+    margin-left: 50%;
+    padding: 10px;
+    background-color: black;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    width: 5vw;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}

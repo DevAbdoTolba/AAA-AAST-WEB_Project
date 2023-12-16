@@ -6,11 +6,11 @@ $admin = array("admin", "tolba", "yes");
 $name = $_POST["username"];
 
 if(in_array($name, $admin)){
-    echo "Welcome ".$name;
+    echo true;
 }
 
 else {
-    echo "Sorry this user is not an admin";
+    echo false;
 }
 
 

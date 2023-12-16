@@ -5,12 +5,31 @@ import Main from "./main";
 import { motion } from "framer-motion";
 import Categories from "./categories/main";
 import Featured from "./featured/main";
+import { useEffect } from "react";
 
 const MotionTypography = motion(Typography);
 const CategoriesMotion = motion(Categories);
 const FeaturedMotion = motion(Featured);
 
 export default function Home() {
+  // get from .env
+
+  useEffect(() => {
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        console.log("Enter");
+        // console.log(process.env.BACKEND_API_URL);
+
+        fetch("/api/submit")
+          .then((res) => {
+            res.text();
+          })
+          .then((data) => {
+            console.log(data);
+          });
+      }
+    });
+  });
   return (
     <>
       <Box
@@ -19,8 +38,7 @@ export default function Home() {
         justifyContent={"center"}
         alignItems={"center"}
         gap={"5ch"}
-        sx={{
-        }}
+        sx={{}}
       >
         <Main />
         <MotionTypography

@@ -1,31 +1,11 @@
-<?php
-$name = "User";
-$score = 10;
+ <?php 
+
+// Create an array with a greeting
+$data = array('message' => 'Hello, World!');
+
+// Convert the array to JSON
+$json = json_encode($data);
+
+// Output the JSON
+echo $json;
 ?>
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>
-        <?php echo $name; ?>
-    </title>
-</head>
-
-<body>
-    <div>
-        <?php echo "Welcomes " . $name; ?>
-    </div>
-    <div>
-        <?php echo $name . ", you scored " . $score . " point/s"; ?>
-    </div>
-    <div>
-        <?php
-        // for ($i = 0; $i < 5; $i++) {
-
-            include("score.php");
-        // }
-        ?>
-    </div>
-</body>
-
-</html>

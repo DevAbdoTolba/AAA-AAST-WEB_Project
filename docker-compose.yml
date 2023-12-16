@@ -10,5 +10,5 @@ services:
     build: /PHP
     ports:
       - "8700:8700"
-
-  
+    volumes:  
+      - ./PHP:/var/www/html

@@ -20,7 +20,7 @@ export default function Home() {
         console.log("Enter");
         // console.log(process.env.BACKEND_API_URL);
 
-        fetch("/api/submit")
+        fetch("/api/route")
           .then((res) => {
             res.text();
           })

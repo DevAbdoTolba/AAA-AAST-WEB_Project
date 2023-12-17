@@ -12,24 +12,7 @@ const CategoriesMotion = motion(Categories);
 const FeaturedMotion = motion(Featured);
 
 export default function Home() {
-  // get from .env
 
-  useEffect(() => {
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        console.log("Enter");
-        // console.log(process.env.BACKEND_API_URL);
-
-        fetch("/api/route")
-          .then((res) => {
-            res.text();
-          })
-          .then((data) => {
-            console.log(data);
-          });
-      }
-    });
-  });
   return (
     <>
       <Box

@@ -5,10 +5,9 @@ WORKDIR /app
 
 COPY ./ ./
 # add yarn
-RUN npm install -g yarn
 
 # install dependencies
-RUN yarn install
+RUN yarn
 
 # expose port 3000
 EXPOSE 3000

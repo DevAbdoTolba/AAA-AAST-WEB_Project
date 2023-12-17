@@ -13,7 +13,9 @@ export default async function handler(
 
 
   const getData = async () => {
-    const response = await fetch('http://localhost:8700/')
+    console.log(process.env.BACKEND_API_URL);
+    
+    const response = await fetch(process.env.BACKEND_API_URL+"/")
     const data =  
       await response.json()
     

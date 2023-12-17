@@ -1,12 +1,14 @@
 version: '3'
 services:
   
-  front-next:
-    build: /app
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./app:/app
+  # front-next:
+  #   build: /app
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     - BACKEND_API_URL=http://localhost:8700
+
+    
 
 
   back-php:
@@ -15,3 +17,17 @@ services:
       - "8700:8700"
     volumes:  
       - ./PHP:/var/www/html
+  
+  back-mysql:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    volumes:
+      - ./mysql:/var/lib/mysql
+    

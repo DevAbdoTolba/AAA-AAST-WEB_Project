@@ -1,17 +1,17 @@
-# nextjs app
-FROM node:20.10.0
+# # nextjs app
+# FROM node:20.10.0
 
-WORKDIR /app
+# WORKDIR /app
 
-COPY ./ ./
-# add yarn
+# COPY ./ ./
+# # add yarn
 
-# install dependencies
-RUN yarn
+# # install dependencies
+# RUN yarn
 
-# expose port 3000
-EXPOSE 3000
+# # expose port 3000
+# EXPOSE 3000
 
-# start app
+# # start app
 
-CMD ["yarn", "dev"]
+# CMD ["yarn", "dev"]

@@ -11,11 +11,11 @@ export default async function handler(
 ) {
 
 
-
+  
   const getData = async () => {
     console.log(process.env.BACKEND_API_URL);
     
-    const response = await fetch(process.env.BACKEND_API_URL+"/")
+    const response = await fetch(process.env.BACKEND_API_URL+"/sql.php?data=testRec")
     const data =  
       await response.json()
     

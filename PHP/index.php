@@ -1,4 +1,4 @@
- <?php 
+<?php
 
 // Create an array with a greeting
 $data = array('message' => 'Hello, World!');
@@ -7,5 +7,11 @@ $data = array('message' => 'Hello, World!');
 $json = json_encode($data);
 
 // Output the JSON
+// $data = $_POST['data'];
+
 echo $json;
+
+
+// echo "Data: " . $data . "\n";
+
 ?>

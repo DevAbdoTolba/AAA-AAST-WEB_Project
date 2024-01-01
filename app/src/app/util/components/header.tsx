@@ -145,7 +145,10 @@ export default function Header() {
           <Grid item xs={4} textAlign={"end"}>
             <ButtonGroup
               sx={{
-                gap: "1rem",
+                gap: {
+                  xs: "0",
+                  sm: "1rem",
+                },
               }}
             >
               <IconButton>

@@ -4,9 +4,9 @@ include("conn.php");
 
 
 
-function insertIntoUsers($conn, $firstname, $lastname, $date, $balance, $type, $password, $email, $city, $country, $gender)
+function insertIntoUsers($conn, $firstname, $lastname, $date, $balance,$token, $type, $password, $email, $city, $country, $gender)
 {
-    $token = $firstname . $lastname . $password;
+    
     $sql = "INSERT INTO Users (user_firstname, user_lastname, user_date, user_balance, user_token, user_type, user_password, user_email, user_city, user_country, user_gender) 
             VALUES ('$firstname', '$lastname', '$date', $balance, '$token', '$type', '$password', '$email', '$city', '$country', $gender)";
 

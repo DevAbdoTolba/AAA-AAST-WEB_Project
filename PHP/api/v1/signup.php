@@ -17,9 +17,9 @@ $country = $_POST["country"];
 $gender = $_POST["gender"];
 
 
+$token = $email . $firstname . $lastname . $password;
 
-
-$result = insertIntoUsers(conn, $firstname, $lastname, $date, $balance, $type, $password, $email, $city, $country, $gender);
+$result = insertIntoUsers(conn, $firstname, $lastname, $date, $balance, $token, $type, $password, $email, $city, $country, $gender);
 
 
 // $data = array('message' => $result ? 'user created successfully' : "Error creating user", 'result' => $result ? 200 : 404);

@@ -1,8 +1,9 @@
-'use client'
+"use client";
 
 import { Typography, Box, Button } from "@mui/material";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useEffect } from "react";
 const MotionBox = motion(Box);
 
 export default function Main() {
@@ -38,8 +39,8 @@ export default function Main() {
               py: 1.5,
               fontWeight: 700,
             }}
-            onClick={()=>{
-              window.location.href = "products"
+            onClick={() => {
+              window.location.href = "products";
             }}
           >
             Check out
@@ -56,13 +57,10 @@ export default function Main() {
                 width: "50%",
                 height: "50%",
                 objectFit: "cover",
-              }
+              },
             }}
           >
-            <img
-              src={"/images/coach.png"}
-              alt={"Coach"}
-            />
+            <img src={"/images/coach.png"} alt={"Coach"} />
           </MotionBox>
         </Box>
       </MotionBox>

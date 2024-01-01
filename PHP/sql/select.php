@@ -2,10 +2,10 @@
 include('conn.php');
 
 // select from database and return json
-function select($sql)
+function select($table)
 {
-    // $sql = "SELECT * FROM `test`";
-    
+    $sql = "SELECT * FROM " . $table ;
+
     $result = conn->query($sql);
     $rows = array();
     if ($result->num_rows > 0) {

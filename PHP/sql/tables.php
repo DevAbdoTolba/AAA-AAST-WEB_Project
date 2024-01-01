@@ -2,7 +2,7 @@
 include("conn.php");
 
 $sqlUsers = "CREATE TABLE Users (
-        user_id INT AUTO_INCREMENT PRIMARY KEY,
+        user_id INT AUTO_INCREMENT  ,
         user_firstname VARCHAR(255),
         user_lastname VARCHAR(255),
         user_date DATE,
@@ -10,9 +10,12 @@ $sqlUsers = "CREATE TABLE Users (
         user_token VARCHAR(255),
         user_type VARCHAR(255),
         user_password VARCHAR(255),
-        user_email VARCHAR(255),
+        user_email VARCHAR(255) NOT NULL UNIQUE,
         user_city VARCHAR(255),
-        user_country VARCHAR(255)
+        user_country VARCHAR(255),
+        user_gender BOOLEAN,
+        PRIMARY KEY (user_id, user_email)
+
         )";
 
 $sqlProducts = "CREATE TABLE Products (
@@ -34,6 +37,7 @@ $sqlLove = "CREATE TABLE Love (
 $sqlOrder = "CREATE TABLE `Order` (
             user_id INT,
             product_id INT,
+            order_quantity INT,
             FOREIGN KEY (user_id) REFERENCES Users(user_id), 
             FOREIGN KEY (product_id) REFERENCES Products(product_id),
             PRIMARY KEY (user_id, product_id)

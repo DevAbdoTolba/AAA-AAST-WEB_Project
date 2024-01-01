@@ -29,7 +29,7 @@ echo nl2br("<html><body>
 );
 
 foreach ($dir as $v) {
-    echo nl2br("<a href='section/" . $v . "'>" . $v . "</a><br>");
+    echo nl2br("<a href='./section/" . $v . "'>" . $v . "</a><br>");
 }
 
 echo nl2br("

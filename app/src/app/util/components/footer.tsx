@@ -173,7 +173,7 @@ export default function footer() {
                 textDecoration: "underline",
               },
             }}
-            href="#"
+            href="#contact"
             variant="subtitle1"
             fontWeight={"100"}
             textAlign={"left"}

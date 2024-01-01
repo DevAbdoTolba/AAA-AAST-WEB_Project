@@ -3,11 +3,11 @@
 // check if it is a get or a post request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // The request is using the POST method
-    $sql = $_POST['sql'];
+    $table = $_POST['table'];
 
     // get data from ../sql/select.php
     include('../sql/select.php');
-    $data = select($sql);
+    $data = select($table);
     echo $data;
 
 } else {

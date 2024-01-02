@@ -3,7 +3,12 @@
 import React from "react";
 import "./style.css";
 import Link from "next/link";
+import Snackbar from "@mui/material/Snackbar";
+import Slide, { SlideProps } from "@mui/material/Slide";
+import { Alert } from "@mui/material";
 export default function Main() {
+
+
   const [data, setData] = React.useState({
     fname: "",
     lname: "",
@@ -14,7 +19,9 @@ export default function Main() {
     date: "",
     gender: 0,
   });
-
+  const [confirmPassword, setConfirmPassword] = React.useState("");
+  const [open, setOpen] = React.useState(false);
+  const [message, setMessage] = React.useState("");
   const handelSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { fname, lname, email, password, country, city, date, gender } = data;
@@ -26,17 +33,27 @@ export default function Main() {
       .then((res) => {
         console.log(res);
         if (res.status === 200) window.location.href = "/SignIn";
+        else {
+          setMessage(res.message);
+          setOpen(true);
+        }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setMessage(err.message);
+        setOpen(true);
+      });
   };
-
-  const [confirmPassword, setConfirmPassword] = React.useState("");
 
   const handelInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData({
       ...data,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
@@ -146,7 +163,7 @@ export default function Main() {
                     type="radio"
                     id="male"
                     name="gender"
-                    defaultValue="1"
+                    value="1"
                     onChange={handelInputChange}
                   />
                   <label htmlFor="male">Male</label>
@@ -155,7 +172,7 @@ export default function Main() {
                     type="radio"
                     id="female"
                     name="gender"
-                    defaultValue="0"
+                    value="0"
                     onChange={handelInputChange}
                   />
                   <label htmlFor="female">Female</label>
@@ -184,6 +201,11 @@ export default function Main() {
             alt="modern looking lamp, chair, and a table"
           />
         </div>
+        <Snackbar open={open} onClose={handleClose}>
+          <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
+            {message}
+          </Alert>
+        </Snackbar>
       </main>
     </>
   );

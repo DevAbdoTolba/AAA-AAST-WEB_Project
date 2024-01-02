@@ -51,7 +51,7 @@ export default function Main() {
                   <label htmlFor="Password">Password</label>
                   <input
                     id="Password"
-                    type="text"
+                    type="password"
                     name="password"
                     placeholder="Password"
                     onChange={handleChange}

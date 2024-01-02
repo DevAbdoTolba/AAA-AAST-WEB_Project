@@ -26,4 +26,17 @@ function signIn($conn, $email, $password)
         return false;
     }
 }
+    // i want to get products from database and return json
+    function getProducts($conn , $numOfRows)
+    {
+        $sql = "SELECT * FROM products LIMIT $numOfRows";
+        $result = $conn->query($sql);
+        $rows = array();
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                array_push($rows, $row);
+            }
+            return $rows;
+        }
+    }
 ?>

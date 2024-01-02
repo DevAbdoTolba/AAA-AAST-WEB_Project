@@ -195,7 +195,7 @@ export default function Main() {
             </Typography>
 
             <Slider
-              getAriaLabel={() => "Temperature range"}
+              getAriaLabel={() => "Price range"}
               value={value}
               onChange={handleChange}
               sx={{

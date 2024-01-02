@@ -20,6 +20,7 @@ $sqlUsers = "CREATE TABLE Users (
 
 $sqlProducts = "CREATE TABLE Products (
             product_id INT AUTO_INCREMENT PRIMARY KEY,
+            product_name VARCHAR(255),
             product_price DECIMAL(10,2),
             product_description TEXT,
             product_state VARCHAR(255),

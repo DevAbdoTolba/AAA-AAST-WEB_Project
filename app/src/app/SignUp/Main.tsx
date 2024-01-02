@@ -1,14 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import "./style.css";
 import Link from "next/link";
 import Snackbar from "@mui/material/Snackbar";
-import Slide, { SlideProps } from "@mui/material/Slide";
 import { Alert } from "@mui/material";
 export default function Main() {
-
-
   const [data, setData] = React.useState({
     fname: "",
     lname: "",
@@ -22,9 +19,40 @@ export default function Main() {
   const [confirmPassword, setConfirmPassword] = React.useState("");
   const [open, setOpen] = React.useState(false);
   const [message, setMessage] = React.useState("");
+
+  const emailTag = document.getElementById("email") as HTMLInputElement;
+  const passwordTag = document.getElementById("password") as HTMLInputElement;
+  const confirmPasswordTag = document.getElementById(
+    "confirm Password"
+  ) as HTMLInputElement;
+  const fnameTag = document.getElementById("fname") as HTMLInputElement;
+  const lnameTag = document.getElementById("lname") as HTMLInputElement;
+  const countryTag = document.getElementById("Country") as HTMLInputElement;
+  const cityTag = document.getElementById("City") as HTMLInputElement;
+  const dateTag = document.getElementById("Date") as HTMLInputElement;
   const handelSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { fname, lname, email, password, country, city, date, gender } = data;
+
+    if (
+      emailTag.value == "" ||
+      passwordTag.value == "" ||
+      confirmPasswordTag.value == "" ||
+      fnameTag.value == "" ||
+      lnameTag.value == "" ||
+      countryTag.value == "" ||
+      cityTag.value == "" ||
+      dateTag.value == ""
+    ) {
+      setMessage("Please fill all fields");
+      setOpen(true);
+      return;
+    }
+    if (password !== confirmPassword) {
+      setMessage("Password and confirm password are not the same");
+      setOpen(true);
+      return;
+    }
 
     fetch(
       `http://localhost:3000/api/client/addAccount?firstname=${fname}&lastname=${lname}&email=${email}&password=${password}&country=${country}&city=${city}&date=${date}&gender=${gender}`
@@ -56,6 +84,70 @@ export default function Main() {
     setOpen(false);
   };
 
+  useEffect(() => {
+    const emailTag = document.getElementById("email") as HTMLInputElement;
+    const fnameTag = document.getElementById("fname") as HTMLInputElement;
+    const lnameTag = document.getElementById("lname") as HTMLInputElement;
+    const countryTag = document.getElementById("Country") as HTMLInputElement;
+    const cityTag = document.getElementById("City") as HTMLInputElement;
+
+    fnameTag.addEventListener("input", (e) => {
+      // console.log(e.target.value);
+      // detect if he clicked space
+      if (e.target.value[e.target.value.length - 1] === " ") {
+        e.target.value = e.target.value.slice(0, -1);
+        setMessage("Spaces are not allowed");
+        setOpen(true);
+      }
+      // e.target.value = e.target.value.replace(/[^a-zA-Z]/g, "");
+    });
+    lnameTag.addEventListener("input", (e) => {
+      // console.log(e.target.value);
+      // detect if he clicked space
+      if (e.target.value[e.target.value.length - 1] === " ") {
+        e.target.value = e.target.value.slice(0, -1);
+        setMessage("Spaces are not allowed");
+        setOpen(true);
+      }
+      // e.target.value = e.target.value.replace(/[^a-zA-Z]/g, "");
+    });
+    emailTag.addEventListener("input", (e) => {
+      // console.log(e.target.value);
+      // detect if he clicked space
+      if (e.target.value[e.target.value.length - 1] === " ") {
+        e.target.value = e.target.value.slice(0, -1);
+        setMessage("Spaces are not allowed");
+        setOpen(true);
+      }
+      // e.target.value = e.target.value.replace(/[^a-zA-Z]/g, "");
+    });
+    countryTag.addEventListener("input", (e) => {
+      // console.log(e.target.value);
+      // detect if he clicked space
+      if (e.target.value[e.target.value.length - 1] === " ") {
+        e.target.value = e.target.value.slice(0, -1);
+        setMessage("Spaces are not allowed");
+        setOpen(true);
+      }
+      // e.target.value = e.target.value.replace(/[^a-zA-Z]/g, "");
+    });
+    cityTag.addEventListener("input", (e) => {
+      // console.log(e.target.value);
+      // detect if he clicked space
+      if (e.target.value[e.target.value.length - 1] === " ") {
+        e.target.value = e.target.value.slice(0, -1);
+        setMessage("Spaces are not allowed");
+        setOpen(true);
+      }
+      // e.target.value = e.target.value.replace(/[^a-zA-Z]/g, "");
+    });
+
+    return () => {
+      fnameTag.removeEventListener("input", (e) => {
+        e.preventDefault();
+      });
+    };
+  }, []);
   return (
     <>
       <main>
@@ -70,6 +162,7 @@ export default function Main() {
                 <div className="in">
                   <label htmlFor="fname">First Name</label>
                   <input
+                    required
                     id="fname"
                     type="text"
                     name="fname"
@@ -80,6 +173,7 @@ export default function Main() {
                 <div className="in">
                   <label htmlFor="lname">Last Name</label>
                   <input
+                    required
                     id="lname"
                     type="text"
                     name="lname"
@@ -91,6 +185,7 @@ export default function Main() {
               <div className="in">
                 <label htmlFor="email">Email</label>
                 <input
+                  required
                   id="email"
                   type="text"
                   name="email"
@@ -100,9 +195,10 @@ export default function Main() {
               </div>
               <div className="twoInRow">
                 <div className="in">
-                  <label htmlFor="Password">Password</label>
+                  <label htmlFor="password">Password</label>
                   <input
-                    id="Password"
+                    required
+                    id="password"
                     type="password"
                     name="password"
                     placeholder="Password"
@@ -112,6 +208,7 @@ export default function Main() {
                 <div className="in">
                   <label htmlFor="confirm Password">Confirm Password</label>
                   <input
+                    required
                     id="confirm Password"
                     type="password"
                     name="confirm Password"
@@ -126,6 +223,7 @@ export default function Main() {
                 <div className="in">
                   <label htmlFor="Country">Country</label>
                   <input
+                    required
                     id="Country"
                     type="text"
                     name="country"
@@ -136,6 +234,7 @@ export default function Main() {
                 <div className="in">
                   <label htmlFor="City">City</label>
                   <input
+                    required
                     id="City"
                     type="text"
                     name="city"
@@ -148,6 +247,7 @@ export default function Main() {
                 <div className="in">
                   <label htmlFor="Date">Date of birth</label>
                   <input
+                    required
                     id="Date"
                     type="date"
                     name="date"
@@ -159,6 +259,7 @@ export default function Main() {
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <div className="gender">
                   <input
+                    required
                     className="radio"
                     type="radio"
                     id="male"
@@ -168,6 +269,7 @@ export default function Main() {
                   />
                   <label htmlFor="male">Male</label>
                   <input
+                    required
                     className="radio"
                     type="radio"
                     id="female"
@@ -179,6 +281,7 @@ export default function Main() {
                 </div>
 
                 <input
+                  required
                   type="submit"
                   style={{
                     backgroundColor: "#281667",

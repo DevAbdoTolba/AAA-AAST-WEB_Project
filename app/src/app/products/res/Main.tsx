@@ -5,81 +5,28 @@ import { Box } from "@mui/material";
 
 import Card from "@/app/util/components/Card";
 
-const MockData = [
-  {
-    favorite: false,
-    image: "chair.png",
-    state: "Discount",
-    description: "Very good Chair",
-    price: 100,
-    inCart: false,
-  },
-  {
-    favorite: true,
-    image: "table.png",
-    state: "Sold Out",
-    description: "Very good Table",
-    price: 200,
-    inCart: true,
-  },
-  {
-    favorite: false,
-    image: "lambs.png",
-    state: "Discount",
-    description: "Very good lambs",
-    price: 300,
-    inCart: false,
-  },
-  {
-    favorite: true,
-    image: "coach.png",
-    state: "Sold Out",
-    description: "Very good coach",
-    price: 400,
-    inCart: true,
-  },
-  {
-    favorite: false,
-    image: "chair.png",
-    state: "Discount",
-    description: "Very good Chair",
-    price: 100,
-    inCart: false,
-  },
-  {
-    favorite: true,
-    image: "table.png",
-    state: "Sold Out",
-    description: "Very good Table",
-    price: 200,
-    inCart: true,
-  },
-  {
-    favorite: false,
-    image: "lambs.png",
-    state: "Discount",
-    description: "Very good lambs",
-    price: 300,
-    inCart: false,
-  },
-  {
-    favorite: true,
-    image: "coach.png",
-    state: "Sold Out",
-    description: "Very good coach",
-    price: 400,
-    inCart: true,
-  },
-  {
-    favorite: false,
-    image: "chair.png",
-    state: "Discount",
-    description: "Very good Chair",
-    price: 100,
-    inCart: false,
-  },
-];
 export default function Main() {
+  const [MockData, setMockData] = React.useState([
+    {
+      product_id: "",
+      product_image: "",
+      product_state: "",
+      product_description: "",
+      product_price: 0,
+      inCart: false,
+      favorite: false,
+    },
+  ]);
+  React.useEffect(() => {
+    fetch("http://localhost:3000/api/products/route?n=15")
+      .then((data) => data.json())
+      .then((res) => {
+        console.log(res);
+
+        setMockData(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
   return (
     <>
       <Box
@@ -100,12 +47,13 @@ export default function Main() {
         {MockData.map((item, i) => (
           <Card
             key={i}
-            favorite={item.favorite}
-            image={item.image}
-            state={item.state}
-            description={item.description}
-            price={item.price}
-            inCart={item.inCart}
+            id={item?.product_id}
+            favorite={item?.favorite || false}
+            image={item?.product_image}
+            state={item?.product_state}
+            description={item?.product_description}
+            price={item?.product_price}
+            inCart={item?.inCart || false}
           />
         ))}
       </Box>

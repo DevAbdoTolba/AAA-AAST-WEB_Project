@@ -11,6 +11,7 @@ const MotionBox = motion(Box);
 export default function Main() {
   const [data, setData] = React.useState([
     {
+      product_id: "",
       product_image: "",
       product_state: "",
       product_description: "",
@@ -50,6 +51,7 @@ export default function Main() {
         {data.map((item, i) => (
           <Card
             key={i}
+            id={item?.product_id}
             favorite={item?.favorite || false}
             image={item?.product_image}
             state={item?.product_state}

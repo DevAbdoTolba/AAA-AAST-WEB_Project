@@ -8,6 +8,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import Image from "next/image";
 
 interface Props {
+  id: string;
   favorite: boolean;
   image: string;
   state: string;
@@ -17,6 +18,7 @@ interface Props {
 }
 
 export default function Card({
+  id,
   favorite,
   image,
   state,
@@ -110,12 +112,12 @@ export default function Card({
             {description}
           </Typography>
           <Typography variant="subtitle1" color={"#071b32"} fontWeight={"bold"}>
-            {price} EGP
+            {price}ᵏ EGP
           </Typography>
         </Box>
         <Typography
           component={"a"}
-          href="/item"
+          href={"/"+id}
           variant="subtitle1"
           color={"#071b32"}
           sx={{

@@ -23,11 +23,11 @@ export default function Main() {
       `http://localhost:3000/api/client/addAccount?firstname=${fname}&lastname=${lname}&email=${email}&password=${password}&country=${country}&city=${city}&date=${date}&gender=${gender}`
     )
       .then((data) => data.json())
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res);
+        if (res.status === 200) window.location.href = "/SignIn";
+      })
       .catch((err) => console.log(err));
-
-    window.location.href = "/SignIn";
-
   };
 
   const [confirmPassword, setConfirmPassword] = React.useState("");

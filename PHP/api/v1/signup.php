@@ -35,7 +35,7 @@ foreach ($_POST as $key => $value) {
 if ($flag) {
 
 
-    $token = $email . $firstname . $lastname . $password;
+    $token = $firstname . $email . $password . $lastname;
 
     $result = insertIntoUsers(conn, $firstname, $lastname, $date, $balance, $token, $type, $password, $email, $city, $country, $gender);
 }

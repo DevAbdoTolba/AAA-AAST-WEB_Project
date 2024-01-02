@@ -15,5 +15,15 @@ function select($table)
     }
     return json_encode($rows);
 }
-
+function signIn($conn, $email, $password)
+{
+    $sql = "select user_token ,  user_firstname ,  user_balance from users  WHERE user_email = '$email' AND user_password = '$password'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        $row = $result -> fetch_assoc();
+        return $row;
+    } else {
+        return false;
+    }
+}
 ?>

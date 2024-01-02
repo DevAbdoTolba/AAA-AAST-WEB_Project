@@ -60,6 +60,7 @@
     "firstname",
     "fname",
     "lastname",
-    "lname"
+    "lname",
+    "signin"
   ]
 }

@@ -2,6 +2,7 @@
 import { ReactNode } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import GlobalStyles from "@mui/material/GlobalStyles";
+import React from "react";
 import {
   Experimental_CssVarsProvider as CssVarsProvider,
   experimental_extendTheme as extendTheme,
@@ -198,6 +199,7 @@ const themeConfig = {
   },
 };
 
+export const FirstNameContext = React.createContext("");
 const ThemeComponent = ({ children }: Props) => {
   // @ts-ignore
   const theme = responsiveFontSizes(extendTheme(themeConfig)) as Omit<
@@ -205,6 +207,20 @@ const ThemeComponent = ({ children }: Props) => {
     "palette"
   > &
     CssVarsTheme;
+
+  const [firstName, setFirstName] = React.useState("");
+  React.useEffect(() => {
+    if (
+      localStorage.getItem("token") === null ||
+      localStorage.getItem("token") === undefined ||
+      localStorage.getItem("token") === ""
+    ) {
+      return;
+    } else {
+      // set useContext value
+      setFirstName(localStorage.getItem("token") as string);
+    }
+  }, []);
 
   return (
     <CssVarsProvider theme={theme}>
@@ -228,7 +244,9 @@ const ThemeComponent = ({ children }: Props) => {
           },
         }}
       />
-      {children}
+      <FirstNameContext.Provider value={firstName}>
+        {children}
+      </FirstNameContext.Provider>
     </CssVarsProvider>
   );
 };

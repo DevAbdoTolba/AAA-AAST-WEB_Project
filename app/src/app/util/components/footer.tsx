@@ -323,7 +323,7 @@ export default function footer() {
             15 Aswan. Aswan, Egypt
           </Typography>
           <Typography variant="subtitle1" fontWeight={"100"} textAlign={"left"}>
-            11201 meine@kompf.com
+            11201 meine@kampf.com
           </Typography>
           <Typography variant="subtitle1" fontWeight={"100"} textAlign={"left"}>
             +20 1234 567 8910

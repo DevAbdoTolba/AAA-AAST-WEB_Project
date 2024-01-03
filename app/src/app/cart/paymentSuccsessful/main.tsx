@@ -12,7 +12,7 @@ export default function main() {
         <div className="submission-div">
           <h3 className="submission-text">payment Succsessful!</h3>
         </div>
-        <div className="thumbnail-div">
+        {/* <div className="thumbnail-div">
           <img
             src="./images/ui-image-placeholder-wireframes-apps-260nw-1037719204.webp    "
             className="thumbnail-image"
@@ -23,7 +23,7 @@ export default function main() {
             className="thumbnail-image"
             alt="thumbnail"
           />
-        </div>
+        </div> */}
         <div className="text-term-div">
           <h5 className="txt-term">we hope we served you nicely</h5>
         </div>

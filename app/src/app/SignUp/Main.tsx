@@ -185,9 +185,6 @@ export default function Main() {
               <div className="in">
                 <label htmlFor="email">Email</label>
                 <input
-
-                  pattern=""
-
                   required
                   id="email"
                   type="email"

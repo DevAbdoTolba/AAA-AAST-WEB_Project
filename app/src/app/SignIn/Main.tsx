@@ -72,7 +72,7 @@ export default function Main() {
                 <label htmlFor="email">Email</label>
                 <input
                   id="email"
-                  type="text"
+                  type="email"
                   name="email"
                   placeholder="email"
                   onChange={handleChange}

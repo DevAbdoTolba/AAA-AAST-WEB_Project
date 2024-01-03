@@ -185,9 +185,12 @@ export default function Main() {
               <div className="in">
                 <label htmlFor="email">Email</label>
                 <input
+
+                  pattern=""
+
                   required
                   id="email"
-                  type="text"
+                  type="email"
                   name="email"
                   placeholder="email"
                   onChange={handelInputChange}

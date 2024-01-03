@@ -9,6 +9,8 @@ import { useEffect } from "react";
 const MotionBox = motion(Box);
 
 export default function Main() {
+  const [loading, setLoading] = React.useState(true);
+
   const [data, setData] = React.useState([
     {
       product_id: "",
@@ -21,12 +23,17 @@ export default function Main() {
     },
   ]);
   useEffect(() => {
-    fetch("http://localhost:3000/api/products/route?n=8")
+    const token = localStorage.getItem("token");
+    fetch(
+      "http://localhost:3000/api/products/route?n=8" +
+        (token?.length > 0 ? "&token=" + token : "")
+    )
       .then((data) => data.json())
       .then((res) => {
         console.log(res);
 
         setData(res.data);
+        setLoading(false);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -48,18 +55,22 @@ export default function Main() {
           },
         }}
       >
-        {data.map((item, i) => (
-          <Card
-            key={i}
-            id={item?.product_id}
-            favorite={item?.favorite || false}
-            image={item?.product_image}
-            state={item?.product_state}
-            description={item?.product_description}
-            price={item?.product_price}
-            inCart={item?.inCart || false}
-          />
-        ))}
+        {!loading && (
+          <>
+            {data.map((item, i) => (
+              <Card
+                key={i}
+                id={item?.product_id}
+                favorite={item?.favorite || false}
+                image={item?.product_image}
+                state={item?.product_state}
+                description={item?.product_description}
+                price={item?.product_price}
+                inCart={item?.inCart || false}
+              />
+            ))}
+          </>
+        )}
       </MotionBox>
       <Button
         className={"outlined"}

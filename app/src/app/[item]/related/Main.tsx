@@ -18,15 +18,34 @@ export default function Main() {
       favorite: false,
     },
   ]);
+
+  const [loading, setLoading] = React.useState(true);
+
   React.useEffect(() => {
-    fetch("http://localhost:3000/api/products/route?n=4")
-      .then((data) => data.json())
+    const token = localStorage.getItem("token");
+
+    console.log(
+      "http://localhost:3000/api/products/route?n=4" + (token?.length > 0)
+        ? "&token=" + token
+        : ""
+    );
+
+    fetch(
+      "http://localhost:3000/api/products/route?n=4" +
+        (token?.length > 0 ? "&token=" + token : "")
+    )
+      .then((data) => {
+        return data.json();
+      })
       .then((res) => {
         console.log(res);
 
         setMockData(res.data);
+        setLoading(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
   return (
     <Box textAlign={"left"} width={"90vw"} my={5}>
@@ -55,19 +74,24 @@ export default function Main() {
           },
         }}
       >
-        {MockData.map((item, i) => (
-          <Card
-          key={i}
-          id={item?.product_id}
-
-          favorite={item?.favorite || false}
-          image={item?.product_image}
-          state={item?.product_state}
-          description={item?.product_description}
-          price={item?.product_price}
-          inCart={item?.inCart || false}
-        />
-        ))}
+        {!loading ? (
+          <>
+            {MockData.map((item, i) => (
+              <Card
+                key={i}
+                id={item?.product_id}
+                favorite={item?.favorite || false}
+                image={item?.product_image}
+                state={item?.product_state}
+                description={item?.product_description}
+                price={item?.product_price}
+                inCart={item?.inCart || false}
+              />
+            ))}
+          </>
+        ) : (
+          <></>
+        )}
       </Box>
     </Box>
   );

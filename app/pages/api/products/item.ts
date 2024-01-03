@@ -12,8 +12,12 @@ export default async function handler(
   const getData = async () => {
     console.log(process.env.BACKEND_API_URL);
     const id = req.query.id;
+    const token = req.query.token;
     const response = await fetch(
-      process.env.BACKEND_API_URL + `/product.php?id=${id}`
+      process.env.BACKEND_API_URL +
+        `/product.php?id=${id}` +
+        "" + // if there is token add it here
+        (token ? `&token=${token}` : "")
     );
     const data = await response.json();
 

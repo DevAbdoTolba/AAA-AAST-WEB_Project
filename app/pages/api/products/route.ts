@@ -12,8 +12,19 @@ export default async function handler(
   const getData = async () => {
     console.log(process.env.BACKEND_API_URL);
     const numOfProducts = req.query.n;
+    const token = req.query.token;
+    console.log(
+      process.env.BACKEND_API_URL +
+        `/products.php?numOfRows=${numOfProducts}` +
+        "" + // if there is token add it here
+        (token ? `&token=${token}` : "")
+    );
+
     const response = await fetch(
-      process.env.BACKEND_API_URL + `/products.php?numOfRows=${numOfProducts}`
+      process.env.BACKEND_API_URL +
+        `/products.php?numOfRows=${numOfProducts} ` +
+        "" + // if there is token add it here
+        (token ? `&token=${token}` : "")
     );
     const data = await response.json();
 

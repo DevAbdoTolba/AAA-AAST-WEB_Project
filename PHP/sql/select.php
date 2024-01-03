@@ -128,6 +128,20 @@ function getLovedProduct($conn, $token, $id)
     }
 }
 
+function getCart($conn, $token)
+{
+    $sql = "SELECT * FROM Products Right join `order` on order.product_id = Products.product_id where order.user_id = (SELECT user_id from users where user_token = '$token')";
+    $result = $conn->query($sql);
+    $rows = array();
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            array_push($rows, $row);
+        }
+        return $rows;
+    } else {
+        return false;
+    }
 
+}
 
 ?>

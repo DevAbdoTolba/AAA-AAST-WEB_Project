@@ -1,11 +1,14 @@
 "use client";
 import React from "react";
+import { lazy, Suspense } from "react";
 import "./style.css";
 
-import Succsessful from "./paymentSuccsessful/main";
+// import Succsessful from "./paymentSuccsessful/main";
 import Button from "@mui/material/Button";
 import CartCard from "./cartCard";
 import { Box, Typography } from "@mui/material";
+
+const Succsessful = lazy(() => import("./paymentSuccsessful/main"));
 
 export default function Page() {
   const [succsessful, setSuccsessful] = React.useState(false);
@@ -105,13 +108,19 @@ export default function Page() {
                   className="filled"
                   onClick={() => {
                     window.scrollTo(0, 0);
+                    // import Succsessful from "./paymentSuccsessful/main"; lazy import
+
                     setSuccsessful(true);
                   }}
                 >
                   <p>Checkout</p>
                 </Button>
               </div>
-              {succsessful ? <Succsessful /> : null}
+              {succsessful && (
+                <Suspense fallback={<></>}>
+                  <Succsessful />
+                </Suspense>
+              )}
             </>
           )}
         </>

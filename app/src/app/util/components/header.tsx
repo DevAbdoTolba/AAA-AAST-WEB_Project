@@ -184,9 +184,9 @@ export default function Header() {
                 },
               }}
             >
-              <IconButton>
+              {/* <IconButton>
                 <SearchIcon />
-              </IconButton>
+              </IconButton> */}
               {isLogin ? (
                 <IconButton onClick={handleClick}>
                   <Avatar

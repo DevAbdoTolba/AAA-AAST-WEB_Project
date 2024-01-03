@@ -4,116 +4,133 @@ import "./style.css";
 
 import Succsessful from "./paymentSuccsessful/main";
 import Button from "@mui/material/Button";
+import CartCard from "./cartCard";
+import { Box, Typography } from "@mui/material";
 
 export default function Page() {
   const [succsessful, setSuccsessful] = React.useState(false);
+  const token = localStorage.getItem("token");
+  const [cart, setCart] = React.useState([
+    {
+      product_id: "",
+      product_name: "",
+      product_image: "",
+      product_state: "",
+      product_description: "",
+      product_price: 0,
+      inCart: true,
+      favorite: false,
+    },
+  ]);
+  const [totalPrice, setTotalPrice] = React.useState(0);
+  const [loading, setLoading] = React.useState(true);
+  const [noData, setNoData] = React.useState(true);
+  if (!token) {
+    window.location.href = "/login";
+  }
+  React.useEffect(() => {
+    fetch("http://localhost:3000/api/client/cart?token=" + token)
+      .then((data) => data.json())
+      .then((res) => {
+        console.log("🚀 ~ file: page.tsx:37 ~ .then ~ status:", res.status);
+        if (res.status === "404") {
+          setNoData(false);
+        }
+
+        setCart(res.data);
+
+        setTotalPrice(
+          res.data.reduce((acc, item) => acc + parseInt(item.product_price), 0)
+        );
+
+        setLoading(false);
+      });
+  }, [token]);
+
+  // const handelAddToCart = (id: string, index: number) => {
+  //   const token = localStorage.getItem("token");
+  //   if (token?.length > 0) {
+  //     fetch("/api/shop/cart?token=" + token + "&id=" + id)
+  //       .then((data) => {
+  //         return data.json();
+  //       })
+  //       .then((res) => {
+  //         console.log(res);
+  //         setIsInCart(
+  //           res.data.map((item) => {
+  //             return true;
+  //           })
+  //         );
+  //       });
+  //   } else {
+  //     alert("Please login to add to cart");
+  //   }
+  // };
 
   return (
     <>
-      <h1>Your Cart</h1>
-      <div className="Box">
-        <div className="product">
-          <div className="image">
-            <img
-              src="./images/fabric-sofas-10661.avif"
-              alt="White Wooden Chair"
-              className="image"
-            />
-            <div className="text">
-              <h4>Leather Sofa</h4>
-              <h6>color : black</h6>
-            </div>
-            <div className="selection">
-              <label htmlFor="Qty">Qty</label>
-              <select id="Qty" name="Qty">
-                <option value={1}>1</option>
-                <option value={2}>2</option>
-                <option value={3}>3</option>
-                <option value={4}>4</option>
-                <option value={5}>5</option>
-                <option value={6}>6</option>
-                <option value={7}>7</option>
-                <option value={8}>8</option>
-              </select>
-            </div>
-            <div>
-              <h3>$213</h3>
-            </div>
-          </div>
-        </div>
-        <div className="product">
-          <div className="image">
-            <img
-              src="./images/fabric-sofas-10661.avif"
-              alt="White Wooden Chair"
-              className="image"
-            />
-            <div className="text">
-              <h4>Modern chair</h4>
-              <h6>color:yellow </h6>
-            </div>
-            <div className="selection">
-              <label htmlFor="Qty">Qty</label>
-              <select id="Qty" name="Qty">
-                <option value={1}>1</option>
-                <option value={2}>2</option>
-                <option value={3}>3</option>
-                <option value={4}>4</option>
-                <option value={5}>5</option>
-                <option value={6}>6</option>
-                <option value={7}>7</option>
-                <option value={8}>8</option>
-              </select>
-            </div>
-            <div>
-              <h3>$322</h3>
-            </div>
-          </div>
-        </div>
-        <div className="product">
-          <div className="image">
-            <img
-              src="./images/fabric-sofas-10661.avif"
-              alt="White Wooden Chair"
-              className="image"
-            />
-            <div className="text">
-              <h4>Leather Sofa</h4>
-              <h6>color</h6>
-            </div>
-            <div className="selection">
-              <label htmlFor="Qty">Qty</label>
-              <select id="Qty" name="Qty">
-                <option value={1}>1</option>
-                <option value={2}>2</option>
-                <option value={3}>3</option>
-                <option value={4}>4</option>
-                <option value={5}>5</option>
-                <option value={6}>6</option>
-                <option value={7}>7</option>
-                <option value={8}>8</option>
-              </select>
-            </div>
-            <div>
-              <h3>$112</h3>
-            </div>
-          </div>
-        </div>
-        <Button
+      {noData ? (
+        <>
+          {!loading && (
+            <>
+              <h1>Your Cart</h1>
+              <div className="Box">
+                {cart.map((item, index) => (
+                  <CartCard
+                    key={index}
+                    name={item.product_name}
+                    id={item.product_id}
+                    favorite={item.favorite}
+                    image={item.product_image}
+                    state={item.product_state}
+                    description={item.product_description}
+                    price={item.product_price}
+                    inCart={item.inCart}
+                  />
+                ))}
+
+                <h2
+                  style={{
+                    marginLeft: "4ch",
+                  }}
+                >
+                  Total Price: £{totalPrice} ᵏ
+                </h2>
+
+                <Button
+                  sx={{
+                    width: "25ch",
+                    margin: " 2ch auto",
+                  }}
+                  className="filled"
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                    setSuccsessful(true);
+                  }}
+                >
+                  <p>Checkout</p>
+                </Button>
+              </div>
+              {succsessful ? <Succsessful /> : null}
+            </>
+          )}
+        </>
+      ) : (
+        <Box
           sx={{
-            width: "25ch",
-            margin: " 2ch auto",
-          }}
-          className="filled"
-          onClick={() => {
-            window.scrollTo(0, 0);
-            setSuccsessful(true);
+            marginTop: "10vh",
+            height: "50vh",
           }}
         >
-          <p>Checkout</p>
-        </Button>
-      </div>
-      {succsessful ? <Succsessful /> : null}
+          <Typography variant="h2" align="center">
+            No items in cart
+          </Typography>
+          <Typography variant="h4" align="center">
+            Please go to the <a href="/products">products</a> page to add items
+            to your cart
+          </Typography>
+        </Box>
+      )}
     </>
   );
 }

@@ -143,14 +143,14 @@ export default function footer() {
                 textDecoration: "underline",
               },
             }}
-            href="#"
+            href="/products"
             variant="subtitle1"
             fontWeight={"100"}
             textAlign={"left"}
           >
             Shop
           </Typography>
-          <Typography
+          {/* <Typography
             component={"a"}
             sx={{
               "&:hover": {
@@ -164,7 +164,7 @@ export default function footer() {
             textAlign={"left"}
           >
             Offers
-          </Typography>
+          </Typography> */}
           <Typography
             component={"a"}
             sx={{
@@ -173,7 +173,7 @@ export default function footer() {
                 textDecoration: "underline",
               },
             }}
-            href="#contact"
+            href="#about"
             variant="subtitle1"
             fontWeight={"100"}
             textAlign={"left"}
@@ -188,7 +188,7 @@ export default function footer() {
                 textDecoration: "underline",
               },
             }}
-            href="#"
+            href="#contact"
             variant="subtitle1"
             fontWeight={"100"}
             textAlign={"left"}

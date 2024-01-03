@@ -29,7 +29,7 @@ export default function Page() {
   const [loading, setLoading] = React.useState(true);
   const [noData, setNoData] = React.useState(true);
   if (!token) {
-    window.location.href = "/login";
+    window.location.href = "/SignIn";
   }
   React.useEffect(() => {
     fetch("http://localhost:3000/api/client/cart?token=" + token)

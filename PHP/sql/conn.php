@@ -1,5 +1,4 @@
 <?php
-header("Content-Type: application/json; charset=UTF-8");
 
 $servername = 'back-mysql'; // Use the service name from docker-compose.yml
 $password = "root";

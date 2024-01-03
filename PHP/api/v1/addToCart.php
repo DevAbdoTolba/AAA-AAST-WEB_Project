@@ -5,6 +5,8 @@
 
 
 include("../../sql/update.php");
+include("index.php");
+
 
 
 

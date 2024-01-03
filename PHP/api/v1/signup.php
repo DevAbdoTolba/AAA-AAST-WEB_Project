@@ -2,6 +2,8 @@
 
 
 include("../../sql/insert.php");
+include("index.php");
+
 
 // print all the POST parameters
 

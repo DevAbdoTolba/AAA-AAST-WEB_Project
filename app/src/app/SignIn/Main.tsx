@@ -78,7 +78,7 @@ export default function Main() {
                   onChange={handleChange}
                 />
               </div>
-              <div className="twoInRow">
+              <div >
                 <div className="in">
                   <label htmlFor="password">Password</label>
                   <input

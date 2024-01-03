@@ -1,6 +1,7 @@
 <?php
 
 include("../../sql/select.php");
+include("index.php");
 
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {

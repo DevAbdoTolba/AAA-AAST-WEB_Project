@@ -1,6 +1,7 @@
 <?php
 include("conn.php");
 
+
 $sqlUsers = "CREATE TABLE Users (
         user_id INT AUTO_INCREMENT  ,
         user_firstname VARCHAR(255),

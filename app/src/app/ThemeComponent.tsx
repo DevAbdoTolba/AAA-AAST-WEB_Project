@@ -199,7 +199,7 @@ const themeConfig = {
   },
 };
 
-export const FirstNameContext = React.createContext("");
+export const TokenContext = React.createContext("");
 const ThemeComponent = ({ children }: Props) => {
   // @ts-ignore
   const theme = responsiveFontSizes(extendTheme(themeConfig)) as Omit<
@@ -208,7 +208,7 @@ const ThemeComponent = ({ children }: Props) => {
   > &
     CssVarsTheme;
 
-  const [firstName, setFirstName] = React.useState("");
+  const [token, setToken] = React.useState("");
   React.useEffect(() => {
     if (
       localStorage.getItem("token") === null ||
@@ -218,7 +218,7 @@ const ThemeComponent = ({ children }: Props) => {
       return;
     } else {
       // set useContext value
-      setFirstName(localStorage.getItem("token") as string);
+      setToken(localStorage.getItem("token") as string);
     }
   }, []);
 
@@ -244,9 +244,7 @@ const ThemeComponent = ({ children }: Props) => {
           },
         }}
       />
-      <FirstNameContext.Provider value={firstName}>
-        {children}
-      </FirstNameContext.Provider>
+      <TokenContext.Provider value={token}>{children}</TokenContext.Provider>
     </CssVarsProvider>
   );
 };

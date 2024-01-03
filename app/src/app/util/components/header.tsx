@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { FirstNameContext } from "@/app/ThemeComponent"; // replace './Layout' with the actual path of your Layout component
+import { TokenContext } from "@/app/ThemeComponent"; // replace './Layout' with the actual path of your Layout component
 
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -20,7 +20,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 export default function Header() {
-  const token = React.useContext(FirstNameContext);
+  const token = React.useContext(TokenContext);
 
   const [name, setName] = React.useState("");
 
@@ -211,13 +211,16 @@ export default function Header() {
                   <PersonOutlineOutlinedIcon />
                 </IconButton>
               )}
-              <IconButton
-                onClick={() => {
-                  window.location.href = "/cart";
-                }}
-              >
-                <ShoppingBagOutlinedIcon />
-              </IconButton>
+
+              {isLogin && (
+                <IconButton
+                  onClick={() => {
+                    window.location.href = "/cart";
+                  }}
+                >
+                  <ShoppingBagOutlinedIcon />
+                </IconButton>
+              )}
             </ButtonGroup>
           </Grid>
         </Grid>

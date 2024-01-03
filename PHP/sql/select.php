@@ -54,4 +54,80 @@ function getProduct($conn, $id)
     }
 }
 
+function getProductsInCart($conn, $token)
+{
+
+    $sql = "SELECT * FROM products Right JOIN `order` on products.product_id = order.product_id where order.user_id = (SELECT user_id from users where user_token = '$token')";
+
+    $result = $conn->query($sql);
+    $rows = array();
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            array_push($rows, $row);
+        }
+        return $rows;
+    } else {
+        return false;
+    }
+
+
+
+}
+
+
+
+function getLovedProducts($conn, $token)
+{
+
+    $sql = "SELECT * FROM products Right JOIN love on products.product_id = love.product_id where love.user_id = (SELECT user_id from users where user_token = '$token')";
+
+    $result = $conn->query($sql);
+    $rows = array();
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            array_push($rows, $row);
+        }
+        return $rows;
+    } else {
+        return false;
+    }
+
+
+
+}
+
+function getProductInCart($conn, $token, $id)
+{
+
+    $sql = "SELECT * FROM products Right JOIN `order` on products.product_id = order.product_id where order.user_id = (SELECT user_id from users where user_token = '$token') AND order.product_id = $id";
+
+    $result = $conn->query($sql);
+    $row = array();
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+
+        return $row;
+    } else {
+        return false;
+    }
+}
+
+function getLovedProduct($conn, $token, $id)
+{
+
+    $sql = "SELECT * FROM products Right JOIN love on products.product_id = love.product_id where love.user_id = (SELECT user_id from users where user_token = '$token') AND love.product_id = $id";
+
+    $result = $conn->query($sql);
+    $row = array();
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+
+        return $row;
+    } else {
+        return false;
+    }
+}
+
+
+
 ?>

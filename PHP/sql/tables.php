@@ -15,7 +15,6 @@ $sqlUsers = "CREATE TABLE Users (
         user_country VARCHAR(255),
         user_gender BOOLEAN,
         PRIMARY KEY (user_id, user_email)
-
         )";
 
 $sqlProducts = "CREATE TABLE Products (

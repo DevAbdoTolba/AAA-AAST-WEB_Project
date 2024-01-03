@@ -6,10 +6,9 @@ import { useParams } from "next/navigation";
 import { Button } from "@mui/material";
 
 import "./style.css";
+import { TokenContext } from "../ThemeComponent";
 
 export default function Main() {
-  const params = useParams<{ item: string }>();
-  const [loading, setLoading] = React.useState(true);
   const [item, setItem] = React.useState({
     product_id: "",
     product_name: "",
@@ -20,17 +19,51 @@ export default function Main() {
     inCart: false,
     favorite: false,
   });
+
+  const params = useParams<{ item: string }>();
+  const [loading, setLoading] = React.useState(true);
+  const [isInCart, setIsInCart] = React.useState(item.inCart);
+  const token = React.useContext(TokenContext);
+
   React.useEffect(() => {
+    const token = localStorage.getItem("token");
     if (params?.item) {
-      fetch(`/api/products/item?id=${params.item}`)
-        .then((data) => data.json())
+      fetch(
+        `/api/products/item?id=${params.item}` +
+          (token?.length > 0 ? "&token=" + token : "")
+      )
+        .then((data) => {
+          return data.json();
+        })
         .then((res) => {
           setItem(res.data);
+          setIsInCart(res.data.inCart);
           console.log(res.data);
         });
       setLoading(false);
     }
   }, [params?.item]);
+
+  const handelAddToCart = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    const token = localStorage.getItem("token");
+    if (token?.length > 0) {
+      fetch("/api/shop/cart?token=" + token + "&id=" + item.product_id)
+        .then((data) => {
+          return data.json();
+        })
+        .then((res) => {
+          console.log(res);
+          setIsInCart((prev) => {
+            return !prev;
+          });
+        });
+    } else {
+      alert("Please login to add to cart");
+    }
+  };
 
   return (
     <>
@@ -96,7 +129,7 @@ export default function Main() {
             </div>
 
             <div className="selections">
-              <div className="selection">
+              {/* <div className="selection">
                 <label htmlFor="color">Color</label>
                 <select id="color" name="color">
                   <option value="Red">Red</option>
@@ -104,9 +137,9 @@ export default function Main() {
                   <option value="Black">Black</option>
                   <option value="Yellow">Yellow</option>
                 </select>
-              </div>
+              </div> */}
 
-              <div className="selection">
+              {/* <div className="selection">
                 <label htmlFor="quantity">Quantity:</label>
                 <input
                   type="number"
@@ -115,21 +148,22 @@ export default function Main() {
                   min={1}
                   defaultValue={1}
                 />
-              </div>
+              </div> */}
             </div>
             <div className="price-submit">
               <div className="price">
-                <h2 className="price-text">${item.product_price}</h2>
+                <h2 className="price-text">£{item.product_price}ᵏ</h2>
               </div>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <Button
-                className="outlined"
+                className={isInCart ? "outlined" : "filled"}
                 sx={{
                   width: "50ch",
                 }}
+                onClick={handelAddToCart}
               >
-                Add to Cart
+                {isInCart ? "Remove from cart" : "Add to cart"}
               </Button>
             </div>
           </div>

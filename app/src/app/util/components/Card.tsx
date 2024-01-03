@@ -29,6 +29,47 @@ export default function Card({
   const [isFavorite, setIsFavorite] = React.useState(favorite);
   const [isInCart, setIsInCart] = React.useState(inCart);
 
+  const handelAddToCart = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    const token = localStorage.getItem("token");
+    if (token?.length > 0) {
+      fetch("/api/shop/cart?token=" + token + "&id=" + id)
+        .then((data) => {
+          return data.json();
+        })
+        .then((res) => {
+          console.log(res);
+          setIsInCart((prev) => {
+            return !prev;
+          });
+        });
+    } else {
+      alert("Please login to add to cart");
+    }
+  };
+
+  const handelAddToFavorite = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    const token = localStorage.getItem("token");
+    if (token?.length > 0) {
+      fetch("/api/shop/fev?token=" + token + "&id=" + id)
+        .then((data) => {
+          return data.json();
+        })
+        .then((res) => {
+          console.log(res);
+          setIsFavorite((prev) => {
+            return !prev;
+          });
+        });
+    } else {
+      alert("Please login to add to favorite");
+    }
+  };
   return (
     <Box
       bgcolor={"#f9f9f9"}
@@ -49,11 +90,7 @@ export default function Card({
           transform: "translate(-50%, 50%)",
           color: "Main.red",
         }}
-        onClick={() => {
-          setIsFavorite((prev) => {
-            return !prev;
-          });
-        }}
+        onClick={handelAddToFavorite}
       >
         {isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
       </IconButton>
@@ -117,7 +154,7 @@ export default function Card({
         </Box>
         <Typography
           component={"a"}
-          href={"/"+id}
+          href={"/" + id}
           variant="subtitle1"
           color={"#071b32"}
           sx={{
@@ -138,11 +175,7 @@ export default function Card({
             width: "80%",
             textAlign: "right",
           }}
-          onClick={() => {
-            setIsInCart((prev) => {
-              return !prev;
-            });
-          }}
+          onClick={handelAddToCart}
         >
           {isInCart ? "Remove from cart" : "Add to cart"}
         </Button>
